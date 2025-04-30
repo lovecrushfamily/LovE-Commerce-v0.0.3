@@ -1,0 +1,39 @@
+Sản phẩm: theo lời thấy, 1 website hoàn chỉnh, viết bằng React, Nodejs
+
+Website dạng ứng dụng, CRUD, thống kê, Đăng nhập đăng xuất, Authentication.
+
+Yêu cầu giới hạn đề tài:
+- Các tính năng cơ bản khi lập trình, CRUD với database.
+- Sử dụng ReactJS cho client side rendering.
+
+Nodejs cho server side rendering.
+- Sử dụng MongoDB cho database.	
+
+Mysql cho database.
+- Sử dụng ExpressJS cho server.
+
+
+# Copliot starting to disturpt me, can you stop it?
+- Sử dụng JWT cho Authentication.
+- Sử dụng Redux cho state management.
+- Sử dụng Bootstrap cho giao diện.
+- Sử dụng Axios cho API call.
+- Sử dụng Webpack cho bundling.
+- Sử dụng Babel cho transpiling.
+- Sử dụng ESLint cho linting.
+- Sử dụng Prettier cho formatting.
+- Sử dụng Jest cho testing.
+- Sử dụng Docker cho containerization.
+- Sử dụng Nginx cho reverse proxy.
+- Sử dụng PM2 cho process management.
+- Sử dụng Swagger cho API documentation.
+- Sử dụng Git cho version control.
+- Sử dụng GitHub cho code hosting.
+- Sử dụng Trello cho project management.
+- Sử dụng Slack cho team communication.
+- Sử dụng Zoom cho video conferencing.
+- Sử dụng Figma cho design.
+- Sử dụng Google Drive cho file sharing.
+- Sử dụng Google Calendar cho scheduling.
+- Sử dụng Google Meet cho video conferencing.
+- Sử dụng Google Docs cho documentation. 
