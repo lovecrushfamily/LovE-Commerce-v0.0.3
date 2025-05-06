@@ -1,0 +1,35 @@
+GET http://localhost:3000/api/account/get-all
+
+
+### Get an account by ID
+GET http://localhost:3000/api/account/get-id/44
+
+
+
+### Create a new account
+POST http://localhost:3000/api/account/create/
+Content-Type: application/json
+
+{
+  "user_name": "Lovecrushv7",
+  "email": "joe@gmail.com",
+  "password_": "lovecrush"
+}
+
+
+### Update an account
+PUT http://localhost:3000/api/account/update/
+Content-Type: application/json
+
+{
+  "account_id": "43",
+  "user_name": "Tan hieu",
+  "email": "john.doe.updated@example.com",
+  "password_": "locecrushforever"
+}
+
+###
+
+
+## Delete an account by ID
+DELETE http://localhost:3001/api/account/delete/13
