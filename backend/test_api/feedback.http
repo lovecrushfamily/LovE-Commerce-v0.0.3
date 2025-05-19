@@ -1,0 +1,40 @@
+@port = 3000
+
+### Get all feedbacks
+GET http://localhost:{{port}}/api/feedback/get-all
+
+### Get a feedback by ID
+GET http://localhost:{{port}}/api/feedback/get-id/1
+
+### Create a new feedback
+POST http://localhost:{{port}}/api/feedback/create
+Content-Type: application/json
+
+{
+    "account_id": 4,
+    "rating": 5,
+    "content": "Great service and fast delivery!"
+}
+
+### Create another feedback
+POST http://localhost:{{port}}/api/feedback/create
+Content-Type: application/json
+
+{
+    "account_id": 5,
+    "rating": 4,
+    "content": "Good experience overall, but could be better"
+}
+
+### Update a feedback
+PUT http://localhost:{{port}}/api/feedback/update
+Content-Type: application/json
+
+{
+    "account_id": 4,
+    "rating": 4,
+    "content": "Updated feedback: Good service but room for improvement"
+}
+
+### Delete a feedback by ID
+DELETE http://localhost:{{port}}/api/feedback/delete/5 

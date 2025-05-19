@@ -1,0 +1,66 @@
+@port = 3001
+@contentType = application/json
+
+### Get all products
+GET http://localhost:{{port}}/api/product/get-all
+
+### Get a product by ID
+GET http://localhost:{{port}}/api/product/get-id/1
+
+### Create a new product
+POST http://localhost:{{port}}/api/product/create
+Content-Type: application/json
+
+{
+    "product_name": "Smartphone X",
+    "description": "Latest smartphone with advanced features",
+    "traits": "5G, 128GB, 8GB RAM",
+    "stock": 100,
+    "sale_off": 10.00,
+    "price": 999.99,
+    "images": "https://example.com/phone1.jpg,https://example.com/phone2.jpg",
+    "status": "pending",
+    "rating": 4.5,
+    "category_id": 1,
+    "shop_id": 2
+}
+
+### Create another product
+POST http://localhost:{{port}}/api/product/create
+Content-Type: application/json
+
+{
+    "product_name": "Laptop Pro",
+    "description": "High-performance laptop for professionals",
+    "traits": "16GB RAM, 512GB SSD, Intel i7",
+    "stock": 50,
+    "sale_off": 5.00,
+    "price": 1499.99,
+    "images": "https://example.com/laptop1.jpg,https://example.com/laptop2.jpg",
+    "status": "pending",
+    "rating": 4.8,
+    "category_id": 1,
+    "shop_id": 3
+}
+
+### Update a product
+PUT http://localhost:{{port}}/api/product/update
+Content-Type: application/json
+
+{
+    "product_id": 3,
+    "product_name": "Smartphone X Pro",
+    "description": "Updated smartphone with more features",
+    "traits": "5G, 256GB, 12GB RAM",
+    "stock": 75,
+    "sale_off": 15.00,
+    "price": 1099.99,
+    "images": "https://example.com/new-phone1.jpg,https://example.com/new-phone2.jpg",
+    "status": "pending",
+    "rating": 4.7,
+    "category_id": 1,
+    "shop_id": 2
+}
+
+### Delete a product by ID
+DELETE http://localhost:{{port}}/api/product/delete/4

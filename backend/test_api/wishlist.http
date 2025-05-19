@@ -1,0 +1,28 @@
+### Get all wishlists
+GET http://localhost:3000/api/wishlist/get-all
+
+### Get wishlist by customer ID
+GET http://localhost:3000/api/wishlist/get-id/1
+
+### Add item to wishlist
+POST http://localhost:3000/api/wishlist/add
+Content-Type: application/json
+
+{
+    "customer_id": 1,
+    "edition_id": 1,
+    "quantity": 1
+}
+
+### Update wishlist quantity
+PUT http://localhost:3000/api/wishlist/update-quantity
+Content-Type: application/json
+
+{
+    "customer_id": 1,
+    "edition_id": 1,
+    "quantity": 2
+}
+
+### Remove item from wishlist
+DELETE http://localhost:3000/api/wishlist/remove/1/1 

@@ -1,0 +1,50 @@
+@port = 3000
+
+### Get all orders
+GET http://localhost:{{port}}/api/order/get-all
+
+### Get an order by ID
+GET http://localhost:{{port}}/api/order/get-id/1
+
+### Create a new order
+POST http://localhost:{{port}}/api/order/create
+Content-Type: application/json
+
+{
+    "account_id": 4,
+    "total_amount": 399.98,
+    "status": "pending",
+    "address": "123 Main St, City, Country",
+    "payment": "Credit Card",
+    "coupon_id": 3
+}
+
+### Create another order
+POST http://localhost:{{port}}/api/order/create
+Content-Type: application/json
+
+{
+    "account_id": 5,
+    "total_amount": 299.99,
+    "status": "pending",
+    "address": "456 Oak St, Town, Country",
+    "payment": "PayPal",
+    "coupon_id": 5
+}
+
+### Update an order
+PUT http://localhost:{{port}}/api/order/update
+Content-Type: application/json
+
+{
+    "order_id": 1,
+    "account_id": 1,
+    "total_amount": 449.98,
+    "status": "delivery",
+    "address": "789 Pine St, New City, Country",
+    "payment": "PayPal",
+    "coupon_id": 1
+}
+
+### Delete an order by ID
+DELETE http://localhost:{{port}}/api/order/delete/2 

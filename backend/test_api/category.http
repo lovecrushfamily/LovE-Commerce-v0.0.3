@@ -1,0 +1,44 @@
+@port = 3001
+
+### Get all categories
+GET http://localhost:{{port}}/api/category/get-all
+
+### Get a category by ID
+GET http://localhost:{{port}}/api/category/get-id/1
+
+### Create a new category
+POST http://localhost:{{port}}/api/category/create
+Content-Type: application/json
+
+{
+    "category_name": "Electronics",
+    "parent_id": null,
+    "traits": "Gadgets, Devices, Tech",
+    "description": "All electronic devices and accessories"
+}
+
+### Create a subcategory
+POST http://localhost:{{port}}/api/category/create
+Content-Type: application/json
+
+{
+    "category_name": "Smartphones",
+    "parent_id": 1,
+    "traits": "Mobile, Phone, Communication",
+    "description": "Mobile phones and accessories"
+}
+
+### Update a category
+PUT http://localhost:{{port}}/api/category/update
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "category_name": "Electronics Updated",
+    "parent_id": null,
+    "traits": "Updated gadgets, devices, tech",
+    "description": "Updated description for electronics"
+}
+
+### Delete a category by ID
+DELETE http://localhost:{{port}}/api/category/delete/2 

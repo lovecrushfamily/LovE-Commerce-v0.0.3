@@ -1,0 +1,60 @@
+@port = 3000
+
+### Get all customers
+GET http://localhost:{{port}}/api/customer/get-all
+
+
+### Get a customer by ID
+GET http://localhost:{{port}}/api/customer/get-id/0
+
+
+### Create a new customer
+POST http://localhost:{{port}}/api/customer/create
+Content-Type: application/json
+
+{
+    "customer_id": 9,
+    "customer_name": "John Doe",
+    "gender": "male",
+    "phone": "1234567890",
+    "avatar": "https://example.com/avatar1.jpg",
+    "date_of_birth": "1990-01-01",
+    "nationality": "US",
+    "address": "123 Main St, City, Country"
+}
+
+
+### Create another customer
+POST http://localhost:{{port}}/api/customer/create
+Content-Type: application/json
+
+{
+    "customer_id": 4,
+    "customer_name": "Jane Smith",
+    "gender": "female",
+    "phone": "0987654321",
+    "avatar": "https://example.com/avatar2.jpg",
+    "date_of_birth": "1992-05-15",
+    "nationality": "UK",
+    "address": "456 Oak St, Town, Country"
+}
+
+
+### Update a customer
+PUT http://localhost:{{port}}/api/customer/update
+Content-Type: application/json
+
+{
+    "customer_id": 1,
+    "customer_name": "John Updated",
+    "gender": "male",
+    "phone": "1112223333",
+    "avatar": "https://example.com/new-avatar.jpg",
+    "date_of_birth": "1990-01-01",
+    "nationality": "CA",
+    "address": "789 Pine St, New City, Country"
+}
+
+
+### Delete a customer by ID
+DELETE http://localhost:{{port}}/api/customer/delete/3

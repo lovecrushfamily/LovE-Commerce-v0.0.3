@@ -1,0 +1,52 @@
+@port = 3000
+
+### Get all reviews
+GET http://localhost:{{port}}/api/review/get-all
+
+### Get a review by ID
+GET http://localhost:{{port}}/api/review/get-id/5
+
+### Create a new review
+POST http://localhost:{{port}}/api/review/create
+Content-Type: application/json
+
+{
+    "product_id":3,
+    "customer_id": 4,
+    "rating": 5,
+    "comment": "Excellent product quality!",
+    "liked": true,
+    "images": "https://example.com/review1.jpg,https://example.com/review2.jpg",
+    "shop_reply": "Thank you for your feedback!"
+}
+
+### Create another review
+POST http://localhost:{{port}}/api/review/create
+Content-Type: application/json
+
+{
+    "product_id": 5,
+    "customer_id": 9,
+    "rating": 4,
+    "comment": "Good product but could be better",
+    "liked": false,
+    "images": "https://example.com/review3.jpg",
+    "shop_reply": null
+}
+
+### Update a review
+PUT http://localhost:{{port}}/api/review/update
+Content-Type: application/json
+
+{
+    "product_id": 5,
+    "customer_id": 9,
+    "rating": 4,
+    "comment": "Updated: Very good product but has some minor issues",
+    "liked": true,
+    "images": "https://example.com/new-review1.jpg,https://example.com/new-review2.jpg",
+    "shop_reply": "Thank you for your updated feedback! We'll work on those issues."
+}
+
+### Delete a review by ID
+# DELETE http://localhost:{{port}}/api/review/delete/2 

@@ -1,0 +1,57 @@
+@port = 3000
+@contentType = application/json
+
+### Get all shops
+GET http://localhost:{{port}}/api/shop/get-all
+
+### Get a shop by ID
+GET http://localhost:{{port}}/api/shop/get-id/1
+
+### Create a new shop
+POST http://localhost:{{port}}/api/shop/create
+Content-Type: application/json
+
+{
+    "shop_name": "Fashion Store",
+    "description": "Your one-stop fashion destination",
+    "address": "123 Fashion St, Style City",
+    "phone_no": "1234567890",
+    "image": "https://example.com/shop1.jpg",
+    "rating": 4.5,
+    //"status": "verify",
+    "seller_id": 8
+}
+
+### Create another shop
+POST http://localhost:{{port}}/api/shop/create
+Content-Type: application/json
+
+{
+    "shop_name": "Tech Gadgets",
+    "description": "Latest technology and gadgets",
+    "address": "456 Tech Ave, Digital City",
+    "phone_no": "0987654321",
+    "image": "https://example.com/shop2.jpg",
+    "rating": 4.8,
+    "status": "verify",
+    "seller_id": 3
+}
+
+### Update a shop
+PUT http://localhost:{{port}}/api/shop/update
+Content-Type: application/json
+
+{
+    "shop_id": 3,
+    "shop_name": "Fashion Store Updated",
+    "description": "Updated fashion destination",
+    "address": "789 New Fashion St, Style City",
+    "phone_no": "1112223333",
+    "image": "https://example.com/new-shop1.jpg",
+    "rating": 4.7,
+    "status": "verify",
+    "seller_id": 8
+}
+
+### Delete a shop by ID
+DELETE http://localhost:{{port}}/api/shop/delete/4

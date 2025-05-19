@@ -1,0 +1,44 @@
+@port = 3000
+
+### Get all deliveries
+GET http://localhost:{{port}}/api/delivery/get-all
+
+### Get a delivery by ID
+GET http://localhost:{{port}}/api/delivery/get-id/1
+
+### Create a new delivery
+POST http://localhost:{{port}}/api/delivery/create
+Content-Type: application/json
+
+{
+    "name": "Standard Shipping",
+    "cost": 10.00,
+    "category_id": 1,
+    "description": "Standard delivery within 3-5 business days"
+}
+
+### Create another delivery
+POST http://localhost:{{port}}/api/delivery/create
+Content-Type: application/json
+
+{
+    "name": "Express Shipping",
+    "cost": 25.00,
+    "category_id": 1,
+    "description": "Express delivery within 1-2 business days"
+}
+
+### Update a delivery
+PUT http://localhost:{{port}}/api/delivery/update
+Content-Type: application/json
+
+{
+    "delivery_id": 1,
+    "name": "Standard Shipping Updated",
+    "cost": 12.00,
+    "category_id": 1,
+    "description": "Updated standard delivery within 3-5 business days"
+}
+
+### Delete a delivery by ID
+DELETE http://localhost:{{port}}/api/delivery/delete/2 

@@ -3,10 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 
+import route from "./routes/route.js";
 
-import Home from "./routes/home"
-import Account from "./routes/account"
-// import Route from "./routes/route"
 
 // src
 dotenv.config();
@@ -85,8 +83,8 @@ app.use(
 //         });
 // };
 
-app.use("/", Home);
-app.use("/api", Account);
+// app.use("/", Home);
+app.use("/api", route);
 
 // Start server
 export const viteNodeApp = app;

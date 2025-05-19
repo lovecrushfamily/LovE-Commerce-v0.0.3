@@ -1,0 +1,56 @@
+@port = 3000
+
+### Get all coupons
+GET http://localhost:{{port}}/api/coupon/get-all
+
+### Get a coupon by ID
+GET http://localhost:{{port}}/api/coupon/get-id/1
+
+### Create a new coupon
+POST http://localhost:{{port}}/api/coupon/create
+Content-Type: application/json
+
+{
+    "coupon_name": "SUMMER2024",
+    "discount": 15.00,
+    "min_amount": 100.00,
+    "max_amount": 50.00,
+    "limit": 100,
+    "image": "https://example.com/coupon1.jpg",
+    "start_day": "2024-06-01",
+    "end_day": "2024-08-31"
+}
+
+### Create another coupon
+POST http://localhost:{{port}}/api/coupon/create
+Content-Type: application/json
+
+{
+    "coupon_name": "WELCOME10",
+    "discount": 10.00,
+    "min_amount": 50.00,
+    "max_amount": 25.00,
+    "limit": 200,
+    "image": "https://example.com/coupon2.jpg",
+    "start_day": "2024-01-01",
+    "end_day": "2024-12-31"
+}
+
+### Update a coupon
+PUT http://localhost:{{port}}/api/coupon/update
+Content-Type: application/json
+
+{
+    "coupon_id": 1,
+    "coupon_name": "SUMMER2024UPDATED",
+    "discount": 20.00,
+    "min_amount": 150.00,
+    "max_amount": 75.00,
+    "limit": 50,
+    "image": "https://example.com/new-coupon1.jpg",
+    "start_day": "2024-06-01",
+    "end_day": "2024-09-30"
+}
+
+### Delete a coupon by ID
+DELETE http://localhost:{{port}}/api/coupon/delete/2 

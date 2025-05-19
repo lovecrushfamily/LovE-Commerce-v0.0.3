@@ -21,3 +21,8 @@ async function checkPassword(inputPassword, storedHash) {
     const match = await bcrypt.compare(inputPassword, storedHash);
     return match; // true or false
 }
+
+
+
+      // req.body.password_ = "forever";
+        req.body.password_ = await bcrypt.hash(req.body.password_, 16);

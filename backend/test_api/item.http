@@ -1,0 +1,59 @@
+@port = 3000
+
+### Get all items
+GET http://localhost:{{port}}/api/item/get-all
+
+### Get an item by ID
+GET http://localhost:{{port}}/api/item/get-id/1
+
+### Create a new item
+POST http://localhost:{{port}}/api/item/create
+Content-Type: application/json
+
+{
+    "product_id": 3,
+    "order_id": 3,
+    "delivery_id": 4,
+    "quantity": 2,
+    "price": 199.99,
+    "status": "pending",
+    "discount": 10.00,
+    "payment": "Credit Card",
+    "note": "Please handle with care"
+}
+
+### Create another item
+POST http://localhost:{{port}}/api/item/create
+Content-Type: application/json
+
+{
+    "product_id": 2,
+    "order_id": 1,
+    "delivery_id": 2,
+    "quantity": 1,
+    "price": 299.99,
+    "status": "pending",
+    "discount": 5.00,
+    "payment": "Credit Card",
+    "note": "Gift wrapping requested"
+}
+
+### Update an item
+PUT http://localhost:{{port}}/api/item/update
+Content-Type: application/json
+
+{
+    "item_id": 2,
+    "product_id": 3,
+    "order_id": 3,
+    "delivery_id": 4,
+    "quantity": 7,
+    "price": 199.99,
+    "status": "Approve",
+    "discount": 15.00,
+    "payment": "PayPal",
+    "note": "Updated: Please handle with extra care"
+}
+
+### Delete an item by ID
+DELETE http://localhost:{{port}}/api/item/delete/1
