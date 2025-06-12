@@ -8,7 +8,7 @@ GET http://localhost:{{port}}/api/shop/get-all
 GET http://localhost:{{port}}/api/shop/get-id/1
 
 ### Create a new shop
-POST http://localhost:{{port}}/api/shop/create
+POST http://localhost:{{port}}/api/shop/create 
 Content-Type: application/json
 
 {

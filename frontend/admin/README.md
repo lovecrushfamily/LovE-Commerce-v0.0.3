@@ -1,24 +1,133 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LoveE-Commerce Admin Dashboard
 
-## Getting Started
+The admin dashboard for LoveE-Commerce, built with Next.js and TypeScript.
 
-First, run the development server:
+## 🏗️ Project Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+admin/
+├── app/              # Next.js app directory
+├── components/       # Reusable components
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+├── public/          # Static assets
+├── styles/          # Global styles
+└── types/           # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js (v14 or higher)
+- npm or yarn
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Set up environment variables:
+```bash
+cp .env.example .env
+```
+
+3. Configure your `.env` file with the following variables:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## 📚 Features
+
+- **Dashboard Overview**
+  - Sales Analytics
+  - Order Statistics
+  - Revenue Reports
+  - Customer Insights
+
+- **Product Management**
+  - Add/Edit Products
+  - Inventory Management
+  - Category Management
+  - Bulk Operations
+
+- **Order Management**
+  - Order Processing
+  - Status Updates
+  - Shipping Management
+  - Returns Handling
+
+- **User Management**
+  - Customer Accounts
+  - Admin Users
+  - Role Management
+  - Permissions
+
+## 🛠️ Tech Stack
+
+- **Next.js** - React Framework
+- **TypeScript** - Type Safety
+- **Tailwind CSS** - Styling
+- **Redux Toolkit** - State Management
+- **React Query** - Data Fetching
+- **Chart.js** - Data Visualization
+- **React Hook Form** - Form Handling
+- **Zod** - Form Validation
+
+## 🎨 UI Components
+
+- **Layout Components**
+  - Sidebar Navigation
+  - Header
+  - Footer
+  - Breadcrumbs
+
+- **Data Display**
+  - Tables
+  - Cards
+  - Charts
+  - Statistics
+
+- **Form Components**
+  - Input Fields
+  - Select Dropdowns
+  - Date Pickers
+  - File Uploads
+
+## 🔒 Authentication
+
+- JWT-based authentication
+- Role-based access control
+- Protected routes
+- Session management
+
+## 📦 Production Deployment
+
+1. Build the application:
+```bash
+npm run build
+```
+
+2. Start the production server:
+```bash
+npm start
+```
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.

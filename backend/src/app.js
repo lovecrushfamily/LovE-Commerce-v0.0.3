@@ -2,14 +2,12 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
-
 import route from "./routes/route.js";
-
+// import demoRoute from "./routes/demo.route.js";
 
 // src
 dotenv.config();
 const app = express();
-
 
 // Middleware
 app.use(express.json());
@@ -19,7 +17,11 @@ app.use(
             process.env.CUS_FRONTEND_URL,
             process.env.ADM_FRONTEND_URL,
             process.env.SEL_FRONTEND_URL,
+            'http://localhost:3020',  // Add this for admin frontend
+            'http://localhost:3010'  // Add this for admin frontend
         ],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
     })
 );
 
@@ -85,6 +87,7 @@ app.use(
 
 // app.use("/", Home);
 app.use("/api", route);
+// app.use("/api/demo", demoRoute);
 
 // Start server
 export const viteNodeApp = app;

@@ -1,7 +1,7 @@
 @port = 3000
 
 ### Get all reviews
-GET http://localhost:{{port}}/api/review/get-all
+GET http://localhost:{{port}}/api/review/get-all 
 
 ### Get a review by ID
 GET http://localhost:{{port}}/api/review/get-id/5
@@ -44,9 +44,11 @@ Content-Type: application/json
     "rating": 4,
     "comment": "Updated: Very good product but has some minor issues",
     "liked": true,
-    "images": "https://example.com/new-review1.jpg,https://example.com/new-review2.jpg",
-    "shop_reply": "Thank you for your updated feedback! We'll work on those issues."
+    "images": "https://images2.thanhnien.vn/528068263637045248/2023/12/9/base64-17021083685481404852851.jpeg,https://hondagiapbinhduong.com/wp-content/uploads/2023/12/bg-winner-x-dacbiet-den.jpg",
+    "shop_reply": "Thank you for your updated feedback! We'll work on those issues.",
 }
 
 ### Delete a review by ID
 # DELETE http://localhost:{{port}}/api/review/delete/2 
+
+

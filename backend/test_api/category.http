@@ -1,7 +1,7 @@
-@port = 3001
+@port = 3000
 
 ### Get all categories
-GET http://localhost:{{port}}/api/category/get-all
+GET http://localhost:{{port}}/api/category/get-all 
 
 ### Get a category by ID
 GET http://localhost:{{port}}/api/category/get-id/1
@@ -33,7 +33,7 @@ PUT http://localhost:{{port}}/api/category/update
 Content-Type: application/json
 
 {
-    "category_id": 1,
+    "category_id": 3,
     "category_name": "Electronics Updated",
     "parent_id": null,
     "traits": "Updated gadgets, devices, tech",

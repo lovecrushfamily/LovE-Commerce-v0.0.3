@@ -54,9 +54,9 @@ export const updateFeedback = async (req, res) => {
         //}
         const affectedRows = await Feedback.update(req.body);
         if (affectedRows === 0) {
-            return res.status(404).send("Not updated successfully!");
+            return res.status(404).json({ error: "Not updated successfully!" });
         }
-        return res.status(200).send("Feedback updated");
+        return res.status(200).json({ message: "Category updated", data: req.body });
     } catch (err) {
         console.error(err);
         return res.status(500).send(err);

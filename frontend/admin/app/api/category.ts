@@ -1,14 +1,16 @@
-const API_URL = 'http://localhost:3001/api/category';
+const API_URL = 'http://localhost:3000/api/category';
 
 export interface Category {
     category_id: number;
-    name: string;
+    category_name: string;
+    traits: string;
+    parent_id: null;
     description: string;
-    created_at: string;
-    updated_at: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
-export const CategoryService = {
+export const CategoryService = { 
     getAll: async (): Promise<Category[]> => {
         const response = await fetch(`${API_URL}/get-all`);
         if (!response.ok) {
@@ -31,7 +33,11 @@ export const CategoryService = {
         return response.json();
     },
 
-    update: async (category: Category): Promise<Category> => {
+    update: async (category: Category): Promise<Category> => { 
+        if (!category.category_id) {
+            throw new Error('Category ID is required for update');
+        }
+
         const response = await fetch(`${API_URL}/update`, {
             method: 'PUT',
             headers: {
@@ -39,10 +45,14 @@ export const CategoryService = {
             },
             body: JSON.stringify(category),
         });
+
         if (!response.ok) {
-            throw new Error('Failed to update category');
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.error || 'Failed to update category');
         }
-        return response.json();
+
+        const result = await response.json();
+        return result.data;
     },
 
     delete: async (categoryId: number): Promise<void> => {

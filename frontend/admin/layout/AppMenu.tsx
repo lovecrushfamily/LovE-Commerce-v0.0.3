@@ -13,46 +13,51 @@ const AppMenu = () => {
     const model: AppMenuItem[] = [
         {
             label: 'Home',      
-            items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-                { label: 'My UI', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Category', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Account', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Customer', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Voucher', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Delivery', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Order', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Item', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Feedback', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Review', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Shop', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Coupon', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Product', icon: 'pi pi-fw pi-home', to: '/myui' },
-                { label: 'Wishlist', icon: 'pi pi-fw pi-home', to: '/myui' }
-                
+            items: [
+                { label: 'Dashboard', icon: 'pi pi-fw pi-chart-line', to: '/' },
+              
             ]
         },
         {
-            label: 'UI Components',
+            label: 'Page',      
             items: [
-                { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-                { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
-                { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
-                { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
-                { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
-                { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
-                { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
-                { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
-                { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
-                { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
-                { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
-                { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
-                { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
-                { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
-                { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
-                { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
-                
+                // { label: 'Dashboard', icon: 'pi pi-fw pi-chart-line', to: '/' },
+                { label: 'Category', icon: 'pi pi-fw pi-tags', to: '/category' },
+                { label: 'Account', icon: 'pi pi-fw pi-users', to: '/account' },
+                { label: 'Customer', icon: 'pi pi-fw pi-user', to: '/customer' },
+                { label: 'Delivery', icon: 'pi pi-fw pi-truck', to: '/delivery' },
+                { label: 'Order', icon: 'pi pi-fw pi-shopping-cart', to: '/order' },
+                { label: 'Item', icon: 'pi pi-fw pi-box', to: '/item' },
+                { label: 'Feedback', icon: 'pi pi-fw pi-comments', to: '/feedback' },
+                { label: 'Review', icon: 'pi pi-fw pi-star', to: '/review' },
+                // { label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', to: '/shop' },
+                { label: 'Coupon', icon: 'pi pi-fw pi-ticket', to: '/coupon' },
+                { label: 'Product', icon: 'pi pi-fw pi-box', to: '/product' },
+                { label: 'About', icon: 'pi pi-fw', to: '/about' }
             ]
         },
+        // {
+        //     label: 'UI Components',
+        //     items: [
+        //         { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
+        //         { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
+        //         { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
+        //         { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
+        //         { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
+        //         { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
+        //         { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
+        //         { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
+        //         { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
+        //         { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
+        //         { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
+        //         { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
+        //         { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
+        //         { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
+        //         { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
+        //         { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
+                
+        //     ]
+        // },
         // {
         //     label: 'Prime Blocks',
         //     items: [
@@ -67,59 +72,59 @@ const AppMenu = () => {
         //         { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://primeflex.org/', target: '_blank' }
         //     ]
         // },
-        {
-            label: 'Pages',
-            icon: 'pi pi-fw pi-briefcase',
-            to: '/pages',
-            items: [
-                {
-                    label: 'Landing',
-                    icon: 'pi pi-fw pi-globe',
-                    to: '/landinglove'
-                },
-                {
-                    label: 'Auth',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        {
-                            label: 'Login',
-                            icon: 'pi pi-fw pi-sign-in',
-                            to: '/auth/login'
-                        },
-                        {
-                            label: 'Error',
-                            icon: 'pi pi-fw pi-times-circle',
-                            to: '/auth/error'
-                        },
-                        {
-                            label: 'Access Denied',
-                            icon: 'pi pi-fw pi-lock',
-                            to: '/auth/access'
-                        }
-                    ]
-                },
-                {
-                    label: 'Crud',
-                    icon: 'pi pi-fw pi-pencil',
-                    to: '/pages/crud'
-                },
-                {
-                    label: 'Timeline',
-                    icon: 'pi pi-fw pi-calendar',
-                    to: '/pages/timeline'
-                },
-                // {
-                //     label: 'Not Found',
-                //     icon: 'pi pi-fw pi-exclamation-circle',
-                //     to: '/pages/notfound'
-                // },
-                // {
-                //     label: 'Empty',
-                //     icon: 'pi pi-fw pi-circle-off',
-                //     to: '/pages/empty'
-                // }
-            ]
-        },
+        // {
+        //     label: 'Pages',
+        //     icon: 'pi pi-fw pi-briefcase',
+        //     to: '/pages',
+        //     items: [
+        //         {
+        //             label: 'Landing',
+        //             icon: 'pi pi-fw pi-globe',
+        //             to: '/landinglove'
+        //         },
+        //         {
+        //             label: 'Auth',
+        //             icon: 'pi pi-fw pi-user',
+        //             items: [
+        //                 {
+        //                     label: 'Login',
+        //                     icon: 'pi pi-fw pi-sign-in',
+        //                     to: '/auth/login'
+        //                 },
+        //                 {
+        //                     label: 'Error',
+        //                     icon: 'pi pi-fw pi-times-circle',
+        //                     to: '/auth/error'
+        //                 },
+        //                 {
+        //                     label: 'Access Denied',
+        //                     icon: 'pi pi-fw pi-lock',
+        //                     to: '/auth/access'
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             label: 'Crud',
+        //             icon: 'pi pi-fw pi-pencil',
+        //             to: '/pages/crud'
+        //         },
+        //         {
+        //             label: 'Timeline',
+        //             icon: 'pi pi-fw pi-calendar',
+        //             to: '/pages/timeline'
+        //         },
+        //         // {
+        //         //     label: 'Not Found',
+        //         //     icon: 'pi pi-fw pi-exclamation-circle',
+        //         //     to: '/pages/notfound'
+        //         // },
+        //         // {
+        //         //     label: 'Empty',
+        //         //     icon: 'pi pi-fw pi-circle-off',
+        //         //     to: '/pages/empty'
+        //         // }
+        //     ]
+        // },
         // {
         //     label: 'Hierarchy',
         //     items: [

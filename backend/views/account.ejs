@@ -1,0 +1,142 @@
+<%- include('partials/header') %>
+
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Account API Testing</h2>
+    </div>
+</div>
+
+<!-- Get All Accounts -->
+<div class="card api-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Get All Accounts</h5>
+        <span class="badge bg-primary method-badge">GET</span>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Endpoint: <code>/api/account/get-all</code></p>
+        <button class="btn btn-primary" onclick="testGetAllAccounts()">Test API</button>
+        <div class="response-area mt-3" id="getAllResponse"></div>
+    </div>
+</div>
+
+<!-- Get Account by ID -->
+<div class="card api-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Get Account by ID</h5>
+        <span class="badge bg-primary method-badge">GET</span>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Endpoint: <code>/api/account/get-id/:id</code></p>
+        <div class="mb-3">
+            <label for="accountId" class="form-label">Account ID</label>
+            <input type="number" class="form-control" id="accountId" placeholder="Enter account ID">
+        </div>
+        <button class="btn btn-primary" onclick="testGetAccountById()">Test API</button>
+        <div class="response-area mt-3" id="getByIdResponse"></div>
+    </div>
+</div>
+
+<!-- Create Account -->
+<div class="card api-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Create Account</h5>
+        <span class="badge bg-success method-badge">POST</span>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Endpoint: <code>/api/account/create</code></p>
+        <div class="mb-3">
+            <label for="createAccountData" class="form-label">Request Body</label>
+            <textarea class="form-control" id="createAccountData" rows="6">{
+    "user_name": "testuser",
+    "password": "testpass123",
+    "email": "test@example.com",
+    "online": "off",
+    "status": "verify"
+}</textarea>
+        </div>
+        <button class="btn btn-success" onclick="testCreateAccount()">Test API</button>
+        <div class="response-area mt-3" id="createResponse"></div>
+    </div>
+</div>
+
+<!-- Update Account -->
+<div class="card api-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Update Account</h5>
+        <span class="badge bg-warning method-badge">PUT</span>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Endpoint: <code>/api/account/update</code></p>
+        <div class="mb-3">
+            <label for="updateAccountData" class="form-label">Request Body</label>
+            <textarea class="form-control" id="updateAccountData" rows="6">{
+    "account_id": 1,
+    "user_name": "updateduser",
+    "password": "newpass123",
+    "email": "updated@example.com",
+    "online": "on",
+    "status": "verify"
+}</textarea>
+        </div>
+        <button class="btn btn-warning" onclick="testUpdateAccount()">Test API</button>
+        <div class="response-area mt-3" id="updateResponse"></div>
+    </div>
+</div>
+
+<!-- Delete Account -->
+<div class="card api-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Delete Account</h5>
+        <span class="badge bg-danger method-badge">DELETE</span>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Endpoint: <code>/api/account/delete/:id</code></p>
+        <div class="mb-3">
+            <label for="deleteAccountId" class="form-label">Account ID</label>
+            <input type="number" class="form-control" id="deleteAccountId" placeholder="Enter account ID">
+        </div>
+        <button class="btn btn-danger" onclick="testDeleteAccount()">Test API</button>
+        <div class="response-area mt-3" id="deleteResponse"></div>
+    </div>
+</div>
+
+<script>
+    async function testGetAllAccounts() {
+        const response = await makeRequest('/api/account/get-all', 'GET');
+        document.getElementById('getAllResponse').innerHTML = `<pre>${formatJSON(response)}</pre>`;
+    }
+
+    async function testGetAccountById() {
+        const id = document.getElementById('accountId').value;
+        if (!id) {
+            alert('Please enter an account ID');
+            return;
+        }
+        const response = await makeRequest(`/api/account/get-id/${id}`, 'GET');
+        document.getElementById('getByIdResponse').innerHTML = `<pre>${formatJSON(response)}</pre>`;
+    }
+
+    async function testCreateAccount() {
+        const data = JSON.parse(document.getElementById('createAccountData').value);
+        const response = await makeRequest('/api/account/create', 'POST', data);
+        document.getElementById('createResponse').innerHTML = `<pre>${formatJSON(response)}</pre>`;
+    }
+
+    async function testUpdateAccount() {
+        const data = JSON.parse(document.getElementById('updateAccountData').value);
+        const response = await makeRequest('/api/account/update', 'PUT', data);
+        document.getElementById('updateResponse').innerHTML = `<pre>${formatJSON(response)}</pre>`;
+    }
+
+    async function testDeleteAccount() {
+        const id = document.getElementById('deleteAccountId').value;
+        if (!id) {
+            alert('Please enter an account ID');
+            return;
+        }
+        const response = await makeRequest(`/api/account/delete/${id}`, 'DELETE');
+        document.getElementById('deleteResponse').innerHTML = `<pre>${formatJSON(response)}</pre>`;
+    }
+</script>
+
+<%- include('partials/footer') %> 

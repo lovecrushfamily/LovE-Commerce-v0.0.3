@@ -41,7 +41,9 @@ export default function CategoryPage() {
     const openNew = () => {
         setCategory({
             category_id: 0,
-            name: '',
+            category_name: '',
+            traits: '',
+            parent_id:null,
             description: '',
             created_at: '',
             updated_at: ''
@@ -59,26 +61,38 @@ export default function CategoryPage() {
         setDeleteCategoryDialog(false);
     };
 
+    
     const saveCategory = async () => {
         setSubmitted(true);
 
-        if (category?.name.trim()) {
+
+        
+        if (category?.category_name.trim()) {
             try {
                 if (category.category_id) {
-                    await CategoryService.update(category);
+                    const { created_at, updated_at, ...categoryToUpdate } = category;
+                    console.log(categoryToUpdate);
+                    await CategoryService.update(categoryToUpdate);
+                    toast.current?.show({
+                        severity: 'success',
+                        summary: 'Successful',
+                        detail: 'Category Updated Successfully',
+                        life: 3000
+                    });
                 } else {
                     await CategoryService.create({
-                        name: category.name,
-                        description: category.description
+                        category_name: category.category_name,
+                        description: category.description,
+                        traits: category.traits,
+                        parent_id:null
+                    });
+                    toast.current?.show({
+                        severity: 'success',
+                        summary: 'Successful',
+                        detail: 'Category Created Successfully',
+                        life: 3000
                     });
                 }
-
-                toast.current?.show({
-                    severity: 'success',
-                    summary: 'Successful',
-                    detail: `Category ${category.category_id ? 'Updated' : 'Created'}`,
-                    life: 3000
-                });
                 hideDialog();
                 loadCategories();
             } catch (error) {
@@ -86,7 +100,7 @@ export default function CategoryPage() {
                 toast.current?.show({
                     severity: 'error',
                     summary: 'Error',
-                    detail: 'Failed to save category',
+                    detail: error instanceof Error ? error.message : 'Failed to save category',
                     life: 3000
                 });
             }
@@ -173,9 +187,16 @@ export default function CategoryPage() {
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} categories"
                         responsiveLayout="scroll"
                     >
-                        <Column field="category_id" header="ID" sortable style={{ minWidth: '4rem' }}></Column>
-                        <Column field="name" header="Name" sortable style={{ minWidth: '14rem' }}></Column>
+                        <Column 
+                            field="rowIndex" 
+                            header="No." 
+                            body={(_, { rowIndex }) => rowIndex + 1} 
+                            style={{ minWidth: '4rem' }}
+                        ></Column>
+                        <Column field="category_id" header="ID" sortable style={{ minWidth: '4rem' }} hidden></Column>
+                        <Column field="category_name" header="Name" sortable style={{ minWidth: '10rem' }}></Column>
                         <Column field="description" header="Description" style={{ minWidth: '20rem' }}></Column>
+                        <Column field="traits" header="Traits" sortable style={{ minWidth: '12rem' }}></Column>
                         <Column field="created_at" header="Created At" sortable style={{ minWidth: '12rem' }}></Column>
                         <Column field="updated_at" header="Updated At" sortable style={{ minWidth: '12rem' }}></Column>
                         <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
@@ -191,16 +212,16 @@ export default function CategoryPage() {
                         onHide={hideDialog}
                     >
                         <div className="field">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="category_name">Name</label>
                             <InputText
-                                id="name"
-                                value={category?.name}
-                                onChange={(e) => setCategory({ ...category!, name: e.target.value })}
+                                id="category_name"
+                                value={category?.category_name}
+                                onChange={(e) => setCategory({ ...category!, category_name: e.target.value })}
                                 required
                                 autoFocus
-                                className={submitted && !category?.name ? 'p-invalid' : ''}
+                                className={submitted && !category?.category_name ? 'p-invalid' : ''}
                             />
-                            {submitted && !category?.name && <small className="p-error">Name is required.</small>}
+                            {submitted && !category?.category_name && <small className="p-error">Name is required.</small>}
                         </div>
                         <div className="field">
                             <label htmlFor="description">Description</label>
@@ -208,6 +229,14 @@ export default function CategoryPage() {
                                 id="description"
                                 value={category?.description}
                                 onChange={(e) => setCategory({ ...category!, description: e.target.value })}
+                            />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="traits">Traits</label>
+                            <InputText
+                                id="traits"
+                                value={category?.traits}
+                                onChange={(e) => setCategory({ ...category!, traits: e.target.value })}
                             />
                         </div>
                     </Dialog>
@@ -224,7 +253,7 @@ export default function CategoryPage() {
                             <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
                             {category && (
                                 <span>
-                                    Are you sure you want to delete <b>{category.name}</b>?
+                                    Are you sure you want to delete <b>{category.category_name}</b>?
                                 </span>
                             )}
                         </div>

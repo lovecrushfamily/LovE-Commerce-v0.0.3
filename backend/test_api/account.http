@@ -1,7 +1,7 @@
 @port = 3000
 
 ### Get all accounts
-GET http://localhost:{{port}}/api/account/get-all
+GET http://localhost:{{port}}/api/account/get-all 
 
 ### Get an account by ID
 GET http://localhost:{{port}}/api/account/get-id/1

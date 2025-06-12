@@ -6,12 +6,12 @@ export const getAllProducts = async (req, res) => {
     try {
         const data = await Product.getAll();
         if (data.length === 0) {
-            return res.status(404).send("No product found!");
+            return res.status(404).json({ error: "No product found!" });
         }
         return res.status(200).json(data);
     } catch (err) {
         console.error(err);
-        return res.status(500).send(err.message);
+        return res.status(500).json({ error: err.message });
     }
 };
 
@@ -21,12 +21,12 @@ export const getProductById = async (req, res) => {
         const { id } = req.params;
         const item = await Product.getById(id);
         if (!item) {
-            return res.status(404).send("Product not exist!");
+            return res.status(404).json({ error: "Product not exist!" });
         }
         return res.status(200).json(item);
     } catch (err) {
         console.error(err);
-        return res.status(500).send(err.message);
+        return res.status(500).json({ error: err.message });
     }
 };
 
@@ -35,13 +35,13 @@ export const createProduct = async (req, res) => {
     try {
         //const { error } = await ProductSchema.validate(req.body);
         //if (error) {
-        //    return res.status(400).send(error.details[0].message);
+        //    return res.status(400).json({ error: error.details[0].message });
         //}
         const result = await Product.create(req.body);
-        return res.status(201).send(result);
+        return res.status(201).json(result);
     } catch (err) {
         console.error(err);
-        return res.status(500).send(err);
+        return res.status(500).json({ error: err.message });
     }
 };
 
@@ -50,16 +50,16 @@ export const updateProduct = async (req, res) => {
     try {
         //const { error } = await ProductSchema.validate(req.body);
         //if (error) {
-        //   return res.status(400).send(error.details[0].message);
+        //   return res.status(400).json({ error: error.details[0].message });
         //}
         const affectedRows = await Product.update(req.body);
         if (affectedRows === 0) {
-            return res.status(404).send("Not updated successfully!");
+            return res.status(404).json({ error: "Not updated successfully!" });
         }
-        return res.status(200).send("Product updated");
+        return res.status(200).json({ message: "Product updated", data: req.body });
     } catch (err) {
         console.error(err);
-        return res.status(500).send(err);
+        return res.status(500).json({ error: err.message });
     }
 };
 
@@ -69,11 +69,11 @@ export const deleteProduct = async (req, res) => {
         const { id } = req.params;
         const deleted = await Product.delete(id);
         if (deleted === 0) {
-            return res.status(404).send("Product not found!");
+            return res.status(404).json({ error: "Product not found!" });
         }
-        return res.status(200).send("Product deleted successfully!");
+        return res.status(200).json({ message: "Product deleted successfully!" });
     } catch (err) {
         console.error(err);
-        return res.status(500).send(err);
+        return res.status(500).json({ error: err.message });
     }
 };
