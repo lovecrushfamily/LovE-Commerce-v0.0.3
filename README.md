@@ -1,12 +1,18 @@
 # LoveE-Commerce v0.0.3
 
-[![Demo Video](https://img.shields.io/badge/Demo-Video-red)](https://your-demo-video-link-here)
+[![Watch Demo Video](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=3f7Y4YWZn1Y)
 
 A modern e-commerce platform built with React, Node.js, and MySQL, featuring a beautiful user interface and robust backend architecture.
 
 ## 🎥 Demo Video
 
-[Insert your demo video here]
+[![Watch Demo Video](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=3f7Y4YWZn1Y)
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=3f7Y4YWZn1Y">
+    <img src="https://img.youtube.com/vi/3f7Y4YWZn1Y/maxresdefault.jpg" alt="Demo Video Thumbnail" width="800">
+  </a>
+</div>
 
 ## 🌟 Features
 
