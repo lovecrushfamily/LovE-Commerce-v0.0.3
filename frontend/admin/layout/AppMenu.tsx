@@ -30,7 +30,7 @@ const AppMenu = () => {
                 { label: 'Item', icon: 'pi pi-fw pi-box', to: '/item' },
                 { label: 'Feedback', icon: 'pi pi-fw pi-comments', to: '/feedback' },
                 { label: 'Review', icon: 'pi pi-fw pi-star', to: '/review' },
-                // { label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', to: '/shop' },
+                { label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', to: '/shop' },
                 { label: 'Coupon', icon: 'pi pi-fw pi-ticket', to: '/coupon' },
                 { label: 'Product', icon: 'pi pi-fw pi-box', to: '/product' },
                 { label: 'About', icon: 'pi pi-fw', to: '/about' }
